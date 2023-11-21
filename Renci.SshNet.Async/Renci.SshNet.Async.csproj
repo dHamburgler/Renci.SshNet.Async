@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net462;uap10.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net462;</TargetFrameworks>
     <AssemblyName>Renci.SshNet.Async</AssemblyName>
     <RootNamespace>Renci.SshNet.Async</RootNamespace>
     <AssemblyVersion>1.5.0</AssemblyVersion>
@@ -16,20 +16,7 @@
     <Copyright>Copyright 2017</Copyright>
     <RepositoryUrl>https://github.com/JohnTheGr8/Renci.SshNet.Async</RepositoryUrl>
     <PackageTags>SSHNET async sftp TAP</PackageTags>
-    <Version>1.4.0</Version>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0'">
-    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
-    <NugetTargetMoniker>UAP,Version=v10.0</NugetTargetMoniker>
-    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
-    <TargetFrameworkIdentifier>.NETCore</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
-    <DefineConstants>$(DefineConstants);WINDOWS_UWP</DefineConstants>
-    <LanguageTargets>$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets</LanguageTargets>
-    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <Version>1.5.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
@@ -38,10 +25,6 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
     <DocumentationFile>bin\Release\net462\Renci.SshNet.Async.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|uap10.0|AnyCPU'">
-    <DocumentationFile>bin\Release\uap10.0\Renci.SshNet.Async.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -58,10 +41,6 @@
 
   <ItemGroup>
     <PackageReference Include="SSH.NET" Version="2023.0.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='uap10.0'">
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />
   </ItemGroup>
 
 </Project>
