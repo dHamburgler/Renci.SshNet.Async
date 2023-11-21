@@ -19,6 +19,8 @@
     <Version>1.5.0</Version>
   </PropertyGroup>
 
+
+
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\Renci.SshNet.Async.xml</DocumentationFile>
   </PropertyGroup>
@@ -41,6 +43,14 @@
 
   <ItemGroup>
     <PackageReference Include="SSH.NET" Version="2023.0.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+      <PackageLicenseFile>License.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <None Include="License.txt" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
