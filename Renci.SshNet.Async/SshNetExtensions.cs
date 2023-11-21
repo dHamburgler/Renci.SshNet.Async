@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Renci.SshNet.Sftp;
 
@@ -11,7 +12,7 @@ namespace Renci.SshNet.Async
         /// <summary>
         /// Asynchronously retrieve list of files in remote directory
         /// </summary>
-        /// <param name="client">The <see cref="SftpClient"/> instance</param>
+        /// <param name="client">The <see cref="ISftpClient"/> instance</param>
         /// <param name="path">The path.</param>
         /// <param name="listCallback">The list callback.</param>
         /// <param name="factory">The <see cref="System.Threading.Tasks.TaskFactory">TaskFactory</see> used to create the Task</param>
@@ -20,17 +21,20 @@ namespace Renci.SshNet.Async
         /// <param name="scheduler">The <see cref="System.Threading.Tasks.TaskScheduler">TaskScheduler</see>
         /// that is used to schedule the task that executes the end method.</param>
         /// <returns>List of directory entries</returns>
-        public static Task<IEnumerable<SftpFile>> ListDirectoryAsync(this SftpClient client,
+        public static Task<IEnumerable<ISftpFile>> ListDirectoryAsync(this SftpClient client,
             string path, Action<int> listCallback = null,
-            TaskFactory<IEnumerable<SftpFile>> factory = null,
+            TaskFactory<IEnumerable<ISftpFile>> factory = null,
             TaskCreationOptions creationOptions = default(TaskCreationOptions),
             TaskScheduler scheduler = null)
         {
-            return (factory = factory ?? Task<IEnumerable<SftpFile>>.Factory).FromAsync(
-                client.BeginListDirectory(path, null, null, listCallback),
-                client.EndListDirectory,
-                creationOptions, scheduler ?? factory.Scheduler ?? TaskScheduler.Current);
+            return (factory = factory ?? Task<IEnumerable<ISftpFile>>.Factory).FromAsync(
+                    client.BeginListDirectory(path, null, null, listCallback),
+                    client.EndListDirectory,
+                    creationOptions,
+                    scheduler ?? factory.Scheduler ?? TaskScheduler.Current
+                );
         }
+
 
         /// <summary>
         /// Asynchronously download the file into the stream.
