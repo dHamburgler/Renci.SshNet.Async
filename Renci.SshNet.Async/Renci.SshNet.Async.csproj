@@ -9,7 +9,6 @@
     <Authors>Ioannis G.</Authors>
     <PackageId>Renci.SshNet.Async</PackageId>
     <Company>Ioannis G.</Company>
-    <PackageLicenseUrl>https://github.com/JohnTheGr8/Renci.SshNet.Async/blob/master/License</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/JohnTheGr8/Renci.SshNet.Async</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Extends Renci.SshNet to implement the task-based async pattern</Description>
