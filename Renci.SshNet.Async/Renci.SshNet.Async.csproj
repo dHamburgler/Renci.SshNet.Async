@@ -9,6 +9,7 @@
     <Authors>Ioannis G.</Authors>
     <PackageId>Renci.SshNet.Async</PackageId>
     <Company>Ioannis G.</Company>
+    <PackageLicenseFile>License</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/JohnTheGr8/Renci.SshNet.Async</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Extends Renci.SshNet to implement the task-based async pattern</Description>
@@ -44,12 +45,8 @@
     <PackageReference Include="SSH.NET" Version="2023.0.0" />
   </ItemGroup>
 
-  <PropertyGroup>
-      <PackageLicenseFile>License.txt</PackageLicenseFile>
-  </PropertyGroup>
-
   <ItemGroup>
-      <None Include="License.txt" Pack="true" PackagePath=""/>
+      <None Include="License" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
